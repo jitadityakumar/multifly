@@ -1,2 +1,2 @@
 # multifly
-Fly with friends
+Fly with friends wherever they are
