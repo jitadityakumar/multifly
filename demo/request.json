@@ -1,0 +1,28 @@
+{ 
+  "request": { 
+    "slice": [ 
+      { 
+        "origin": "LHR", 
+        "destination": "AKL",
+        "date": "2017-03-23",
+	"maxConnectionDuration": 240,
+	"alliance": "STAR",
+	"prohibitedCarrier": [
+		"AI"
+	]
+      },
+      { "origin": "AKL",
+      	"destination": "LON",
+	"date": "2017-04-10",
+	"maxConnectionDuration": 240,
+	"maxStops": 1,
+	"alliance": "STAR"
+      }
+    ],
+    "passengers": {
+      "adultCount": 1
+    },
+    "solutions": 5,
+    "refundable": false
+  }
+}
