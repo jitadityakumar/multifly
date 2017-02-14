@@ -3,7 +3,7 @@ import json
 from pprint import pprint
 
 # Read response from file
-with open('response.json') as data_file:
+with open('response/response.json') as data_file:
 	data = json.load(data_file)
 
 #pprint(data)

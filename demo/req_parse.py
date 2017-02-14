@@ -8,7 +8,7 @@ api_key = 'AIzaSyBeZPDePamxPgJlV1ivqYdgBspO294lOGI'
 
 print("Read request from file")
 # Read json request from file
-with open('request.json') as data_file:
+with open('request/request.json') as data_file:
 	data = json.load(data_file)
 
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
