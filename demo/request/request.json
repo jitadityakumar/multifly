@@ -3,7 +3,7 @@
     "slice": [ 
       { 
         "origin": "LHR", 
-        "destination": "AKL",
+        "destination": "EZE",
         "date": "2017-03-23",
 	"maxConnectionDuration": 240,
 	"alliance": "STAR",
@@ -11,7 +11,7 @@
 		"AI"
 	]
       },
-      { "origin": "AKL",
+      { "origin": "EZE",
       	"destination": "LON",
 	"date": "2017-04-10",
 	"maxConnectionDuration": 240,
