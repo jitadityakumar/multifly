@@ -5,14 +5,12 @@
         "origin": "LHR", 
         "destination": "DEL",
         "date": "2017-05-12",
-	"maxConnectionDuration": 180,
-	"maxStops": 2
+	"maxStops": 0
       },
       { "origin": "DEL",
       	"destination": "LHR",
 	"date": "2017-05-15",
-	"maxConnectionDuration": 180,
-	"maxStops": 2
+	"maxStops": 0
       }
     ],
     "passengers": {

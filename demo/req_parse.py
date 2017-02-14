@@ -16,13 +16,13 @@ req_json = json.dumps(request)
 print("request = "+req_json)
 
 # Make request to google flights api
-#r = requests.post(url+'?key='+api_key, data=req_json, headers=headers)
-#print("Status "+str(r.status_code))
-#response = json.loads(r.text)
+r = requests.post(url+'?key='+api_key, data=req_json, headers=headers)
+print("Status "+str(r.status_code))
+response = json.loads(r.text)
 
 # read response from file
-with open('response/response.json') as response_file:
-    response = json.load(response_file)
+#with open('response/response.json') as response_file:
+#    response = json.load(response_file)
 
 # Print parsed response to console
 print("Parse and print")
