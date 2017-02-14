@@ -3,26 +3,22 @@
     "slice": [ 
       { 
         "origin": "LHR", 
-        "destination": "EZE",
-        "date": "2017-03-23",
-	"maxConnectionDuration": 240,
-	"alliance": "STAR",
-	"prohibitedCarrier": [
-		"AI"
-	]
+        "destination": "DEL",
+        "date": "2017-05-12",
+	"maxConnectionDuration": 180,
+	"maxStops": 2
       },
-      { "origin": "EZE",
-      	"destination": "LON",
-	"date": "2017-04-10",
-	"maxConnectionDuration": 240,
-	"maxStops": 1,
-	"alliance": "STAR"
+      { "origin": "DEL",
+      	"destination": "LHR",
+	"date": "2017-05-15",
+	"maxConnectionDuration": 180,
+	"maxStops": 2
       }
     ],
     "passengers": {
       "adultCount": 1
     },
-    "solutions": 5,
+    "solutions": 100,
     "refundable": false
   }
 }

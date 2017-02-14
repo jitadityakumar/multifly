@@ -2,28 +2,32 @@
 import json
 import requests
 from pprint import pprint
+import io
 
 url = 'https://www.googleapis.com/qpxExpress/v1/trips/search'
 api_key = 'AIzaSyBeZPDePamxPgJlV1ivqYdgBspO294lOGI'
 
-print("Read request from file")
 # Read json request from file
-with open('request/request.json') as data_file:
-	data = json.load(data_file)
+with open('request/request.json') as request_file:
+	request = json.load(request_file)
 
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-data_json = json.dumps(data)
-print("request = "+data_json)
+req_json = json.dumps(request)
+print("request = "+req_json)
 
-r = requests.post(url+'?key='+api_key, data=data_json, headers=headers)
-print("Status "+str(r.status_code))
-response = json.loads(r.text)
+# Make request to google flights api
+#r = requests.post(url+'?key='+api_key, data=req_json, headers=headers)
+#print("Status "+str(r.status_code))
+#response = json.loads(r.text)
 
-data = response
+# read response from file
+with open('response/response.json') as response_file:
+    response = json.load(response_file)
 
+# Print parsed response to console
 print("Parse and print")
 counter = 0
-for tripOption in data["trips"]["tripOption"]:
+for tripOption in response["trips"]["tripOption"]:
 	saleTotal = tripOption["saleTotal"]
 
 	counter = counter + 1
@@ -63,3 +67,20 @@ for tripOption in data["trips"]["tripOption"]:
 			mins  = connectionDuration % 60
 			print("Connection : "+str(hours)+"h"+str(mins)+"m")
 
+print("====================")
+# Parse request
+d = json.loads(req_json)
+plan = ""
+
+for slice in d["request"]["slice"]:
+        origin = slice["origin"]
+        destination = slice["destination"]
+        plan = plan + origin + "-" + destination + "-"
+plan = plan + str(d["request"]["solutions"])
+
+
+filename = "response/response-"+plan+".json"
+print("filename = "+filename)
+# Write response to json file
+with io.open(filename, 'w', encoding='utf-8') as outfile:
+    outfile.write(unicode(json.dumps(response, ensure_ascii=False, sort_keys=True, indent=2)))
