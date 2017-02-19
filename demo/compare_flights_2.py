@@ -8,10 +8,69 @@
 import json
 import re
 import datetime
+import requests
+
+def display_time(timestamp):
+
+	# this regex removes all colons and all 
+	# dashes EXCEPT for the dash indicating + or - utc offset for the timezone
+	conformed_timestamp = re.sub(r"[:]|([-](?!((\d{2}[:]\d{2})|(\d{4}))$))", '', timestamp)
+	
+	# split on the offset to remove it. use a capture group to keep the delimiter
+	split_timestamp = re.split(r"([+|-])",conformed_timestamp)
+	main_timestamp = split_timestamp[0]
+	sign = split_timestamp[1]
+	offset = split_timestamp[2]
+	output_datetime = datetime.datetime.strptime(main_timestamp, "%Y%m%dT%H%M")
+	output_datetime = str(output_datetime)+" "+str(sign)+str(offset)
+	return output_datetime
+
+def find_time_diff(out1,in1,out2,in2):
+	fmt="%Y-%m-%d %H:%M:%S"
+
+	out1=datetime.datetime.strptime(out1,fmt)
+	out2=datetime.datetime.strptime(out2,fmt)
+
+	in1=datetime.datetime.strptime(in1,fmt)
+	in2=datetime.datetime.strptime(in2,fmt)
+
+	if (out1 > out2):
+		out_diff = out1 - out2
+	else:
+		out_diff = out2 - out1
+
+	if (in1 > in2):
+		in_diff = in1 - in2
+	else:
+		in_diff = in2 - in1
+
+	total_diff = out_diff + in_diff
+	return total_diff
+
+
+def convert_to_eur(ccy,amount):
+
+	# JK hack , too many requests
+	return float(amount)
+
+	if (ccy=="EUR"):
+		return float(amount)
+
+	print("Convert - "+ccy+" "+amount)
+	url = ('http://api.fixer.io/latest?symbols=%s') % (ccy)
+	response = requests.get(url)
+
+	data = json.loads(response.text)
+
+	factor = data["rates"][ccy]
+	convert = float(amount) / float(factor)
+	convert = round(convert,2)
+	return float(convert)
+
 
 def str_to_datetime(timestamp):
 	fmt="%Y-%m-%d %H:%M:%S"
-	obj=datetime.datetime.strptime(timestamp,fmt)
+	obj=datetime.datetime.strptime(str(timestamp),fmt)
 	return obj
 
 def time_to_gmt (timestamp):
@@ -45,6 +104,18 @@ def time_to_gmt (timestamp):
         output_datetime = output_datetime + offset_delta
 
     return output_datetime
+
+def print_trip_details(trip,c):
+	print("==========Trip "+str(c)+" "+trip[c,"saleTotal"]+"==========")
+
+	for i in range(1,trip[c,'numSlices']+1):
+		print("---------- Slice "+str(i)+" Duration:"+trip[c,i,"sliceDuration"]+"----------")
+		for j in range(1,trip[c,i,'numSegments']+1):
+			for k in range(1,trip[c,i,j,"numLegs"]+1):
+				print(trip[c,i,j,"flight"]+" "+trip[c,i,j,"bookingCode"]+" "+trip[c,i,j,k,"origin"]+"-"+trip[c,i,j,k,"destination"]+" "+trip[c,i,j,k,"aircraft"]+" "+trip[c,i,j,k,"legDuration"]+" "+trip[c,i,j,k,"mileage"])
+				print("Dep "+trip[c,i,j,k,"depTimeDisp"]+" Arr "+trip[c,i,j,k,"arrTimeDisp"])
+			if (trip[c,i,j,"connectionDuration"]!=""):
+				print("Connection time "+trip[c,i,j,"connectionDuration"])
 
 def file_to_dict (response):
 	"This function takes the json data from a file read and outputs a dict"
@@ -114,6 +185,8 @@ def file_to_dict (response):
 					details[counter,sliceCounter,segmentCounter,legCounter,"depTime"]=str(depTime)
 					details[counter,sliceCounter,segmentCounter,legCounter,"arrTimeGMT"]=str(arrTimeGMT)
 					details[counter,sliceCounter,segmentCounter,legCounter,"depTimeGMT"]=str(depTimeGMT)
+					details[counter,sliceCounter,segmentCounter,legCounter,"arrTimeDisp"]=display_time(arrTime)
+					details[counter,sliceCounter,segmentCounter,legCounter,"depTimeDisp"]=display_time(depTime)
 					if (sliceCounter==1):
 						#This is the outgoing slice
 						if (maxOutArrTime==""):
@@ -127,11 +200,11 @@ def file_to_dict (response):
 						if (maxInDepTime==""):
 							maxInDepTime=depTimeGMT
 						else:
-							if (str_to_datetime(maxInDepTime) < str_to_datetime(depTimeGMT)):
+							if (str_to_datetime(maxInDepTime) > str_to_datetime(depTimeGMT)):
 								maxInDepTime=depTimeGMT
 						details[counter,"MaxInDepTime"]=str(maxInDepTime)
 
-				if 'ConnectionDuration' not in segment:
+				if 'connectionDuration' not in segment:
 					details[counter,sliceCounter,segmentCounter,"connectionDuration"]=""
 				else:
 					connectionDuration=segment["connectionDuration"]
@@ -140,21 +213,97 @@ def file_to_dict (response):
 					details[counter,sliceCounter,segmentCounter,"connectionDuration"]=str(hours)+"h "+str(mins)+"m"
 	return details
 
+query=dict()
+
 # Read response file1
-filename1 = "response/response-LON-GVA-GVA-LON-100.json"
-with open(filename1) as infile1:
-    response1 = json.load(infile1)
+query[0,"filename"] = "response/response-LON-SFO-SFO-LON-100.json"
+query[1,"filename"] = "response/response-MAD-SFO-SFO-MAD-100.json"
 
-filename2 = "response/response-MAD-GVA-GVA-MAD-100.json"
-with open(filename2) as infile2:
-    response2 = json.load(infile2)
+for i in range(0,2):
+	with open(query[i,"filename"]) as infile:
+		query[i,"response"] = json.load(infile)
+	query[i,"trip"]=file_to_dict(query[i,"response"])
 
-print("load file into dict")
-trip1=file_to_dict(response1)
-trip2=file_to_dict(response2)
+trip1=query[0,"trip"]
+trip2=query[1,"trip"]
+
+best=dict()
+out1=trip1[1,'MaxOutArrTime']
+in1 =trip1[1,"MaxInDepTime"]
+out2=trip2[1,"MaxOutArrTime"]
+in2 =trip2[1,"MaxInDepTime"]
+best[0,"diff"]=find_time_diff(out1,in1,out2,in2)
+best[0,"out1"]=out1
+best[0,"in1"] =in1
+best[0,"out2"]=out2
+best[0,"in2"] =in2
+best[0,"price"]=abs(convert_to_eur(trip1[1,"currency"],trip1[1,"value"]) - convert_to_eur(trip2[1,"currency"],trip2[1,"value"]))
+best[0,"trip1"]=1
+best[0,"trip2"]=1
+best_diff=best[0,"diff"]
+best_price=best[0,"price"]
+best_1=1
+best_2=1
+best_out1=1
+best_in1=1
+best_out2=1
+best_in2=1
 
 
-for c in range (1,int(trip1['counter'])+1):
+for i in range (1,int(trip1['counter'])+1):
+
+	out1=trip1[i,"MaxOutArrTime"]
+	in1= trip1[i,"MaxInDepTime"]
+	out2=trip2[1,"MaxOutArrTime"]
+	in2= trip2[1,"MaxInDepTime"]
+	best[i-1,"diff"]=find_time_diff(out1,in1,out2,in2)
+	best[i-1,"price"]=abs(convert_to_eur(trip1[i,"currency"],trip1[i,"value"]) - convert_to_eur(trip2[1,"currency"],trip2[1,"value"]))
+	best[i-1,"trip1"]=i
+	best[i-1,"trip2"]=1
+	best[i-1,"out1"]=out1
+	best[i-1,"in1"] =in1
+	best[i-1,"out2"]=out2
+	best[i-1,"in2"] =in2
+
 	# for each trip in trip1, find the best flight in trip2
+	for j in range (1,int(trip2['counter'])+1):
 
+		out1=trip1[i,"MaxOutArrTime"]
+		in1= trip1[i,"MaxInDepTime"]
+		out2=trip2[j,"MaxOutArrTime"]
+		in2= trip2[j,"MaxInDepTime"]
 
+		diff = find_time_diff(out1,in1,out2,in2)
+		if (diff < best[i-1,"diff"]):
+			best[i-1,"diff"]=diff
+			best[i-1,"trip1"]=i
+			best[i-1,"trip2"]=j
+			best[i-1,"out2"]=out2
+			best[i-1,"in2"]=in2
+
+		price1=convert_to_eur(trip1[i,"currency"],trip1[i,"value"])
+		price2=convert_to_eur(trip2[j,"currency"],trip2[j,"value"])
+		price_diff=abs(price1-price2)
+		if (price_diff < best[i-1,"price"]):
+			best[i-1,"price"]=price_diff
+
+	if (best[i-1,"diff"] < best_diff):
+		best_diff=best[i-1,"diff"]
+		best_1=best[i-1,"trip1"]
+		best_2=best[i-1,"trip2"]
+		best_out1=best[i-1,"out1"]
+		best_in1=best[i-1,"in1"]
+		best_out2=best[i-1,"out2"]
+		best_in2=best[i-1,"in2"]
+
+	if (best[i-1,"price"] < best_price):
+		best_price = best[i-1,"price"]
+
+diff2 = find_time_diff(best_out1,best_in1,best_out2,best_in2)
+print("All time best diff "+str(best_diff)+" "+str(best_1)+"-"+str(best_2))
+#print("out1 "+str(best_out1)+" in1 "+str(best_in1))
+#print("out2 "+str(best_out2)+" in2 "+str(best_in2))
+#print("All time price diff "+str(best_price))
+
+print_trip_details(trip1,best_1)
+print_trip_details(trip2,best_2)

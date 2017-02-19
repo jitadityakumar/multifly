@@ -1,22 +1,25 @@
-{ 
-  "request": { 
-    "slice": [ 
-      { 
-        "origin": "LHR", 
-        "destination": "DEL",
+{
+  "request": {
+    "slice": [
+      {
+        "origin": "MAD",
+        "destination": "SFO",
         "date": "2017-05-12",
-	"maxStops": 0
+		"maxStops": 2,
+		"maxConnectionDuration": 240
       },
-      { "origin": "DEL",
-      	"destination": "LHR",
-	"date": "2017-05-15",
-	"maxStops": 0
+      { "origin": "SFO",
+      	"destination": "MAD",
+		"date": "2017-05-25",
+		"maxStops": 2,
+		"maxConnectionDuration": 240
       }
     ],
     "passengers": {
       "adultCount": 1
     },
     "solutions": 100,
-    "refundable": false
+    "refundable": false,
+	"maxPrice": "EUR1000"
   }
 }

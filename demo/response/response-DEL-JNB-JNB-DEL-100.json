@@ -1,0 +1,797 @@
+{
+  "kind": "qpxExpress#tripsSearch", 
+  "trips": {
+    "data": {
+      "aircraft": [
+        {
+          "code": "320", 
+          "kind": "qpxexpress#aircraftData", 
+          "name": "Airbus A320"
+        }, 
+        {
+          "code": "343", 
+          "kind": "qpxexpress#aircraftData", 
+          "name": "Airbus A340"
+        }, 
+        {
+          "code": "763", 
+          "kind": "qpxexpress#aircraftData", 
+          "name": "Boeing 767"
+        }, 
+        {
+          "code": "77L", 
+          "kind": "qpxexpress#aircraftData", 
+          "name": "Boeing 777"
+        }
+      ], 
+      "airport": [
+        {
+          "city": "ADD", 
+          "code": "ADD", 
+          "kind": "qpxexpress#airportData", 
+          "name": "Addis Ababa Bole International"
+        }, 
+        {
+          "city": "DEL", 
+          "code": "DEL", 
+          "kind": "qpxexpress#airportData", 
+          "name": "Delhi Indira Gandhi International"
+        }, 
+        {
+          "city": "JNB", 
+          "code": "JNB", 
+          "kind": "qpxexpress#airportData", 
+          "name": "Johannesburg O.R. Tambo International"
+        }, 
+        {
+          "city": "MRU", 
+          "code": "MRU", 
+          "kind": "qpxexpress#airportData", 
+          "name": "Mauritius Sir S. Ramgoolam International"
+        }
+      ], 
+      "carrier": [
+        {
+          "code": "ET", 
+          "kind": "qpxexpress#carrierData", 
+          "name": "Ethiopian Airlines Enterprise"
+        }, 
+        {
+          "code": "MK", 
+          "kind": "qpxexpress#carrierData", 
+          "name": "AIR MAURITIUS LTD"
+        }
+      ], 
+      "city": [
+        {
+          "code": "ADD", 
+          "kind": "qpxexpress#cityData", 
+          "name": "Addis Ababa"
+        }, 
+        {
+          "code": "DEL", 
+          "kind": "qpxexpress#cityData", 
+          "name": "Delhi"
+        }, 
+        {
+          "code": "JNB", 
+          "kind": "qpxexpress#cityData", 
+          "name": "Johannesburg"
+        }, 
+        {
+          "code": "MRU", 
+          "kind": "qpxexpress#cityData", 
+          "name": "Mauritius"
+        }
+      ], 
+      "kind": "qpxexpress#data", 
+      "tax": [
+        {
+          "id": "F2_001", 
+          "kind": "qpxexpress#taxData", 
+          "name": "Indian Swachh Bharat Cess Service Tax"
+        }, 
+        {
+          "id": "JN_004", 
+          "kind": "qpxexpress#taxData", 
+          "name": "Indian Service Tax"
+        }, 
+        {
+          "id": "EV_001", 
+          "kind": "qpxexpress#taxData", 
+          "name": "South Africa Passenger Safety Charge"
+        }, 
+        {
+          "id": "YR_F", 
+          "kind": "qpxexpress#taxData", 
+          "name": "MK YR surcharge"
+        }, 
+        {
+          "id": "YR_I", 
+          "kind": "qpxexpress#taxData", 
+          "name": "MK YR surcharge"
+        }, 
+        {
+          "id": "ZA_001", 
+          "kind": "qpxexpress#taxData", 
+          "name": "South Africa Passenger Service Charge"
+        }, 
+        {
+          "id": "OV_001", 
+          "kind": "qpxexpress#taxData", 
+          "name": "Mauritius Terminal Expansion Fee"
+        }, 
+        {
+          "id": "WC_001", 
+          "kind": "qpxexpress#taxData", 
+          "name": "South Africa Air Passenger Tax"
+        }, 
+        {
+          "id": "WO_001", 
+          "kind": "qpxexpress#taxData", 
+          "name": "Indian Passenger Service Fee"
+        }, 
+        {
+          "id": "IN_003", 
+          "kind": "qpxexpress#taxData", 
+          "name": "India User Development Fee Arrivals"
+        }, 
+        {
+          "id": "YQ_F", 
+          "kind": "qpxexpress#taxData", 
+          "name": "MK YQ surcharge"
+        }, 
+        {
+          "id": "G1_001", 
+          "kind": "qpxexpress#taxData", 
+          "name": "India Krishi Kalyan Cess"
+        }, 
+        {
+          "id": "UM_001", 
+          "kind": "qpxexpress#taxData", 
+          "name": "South Africa Asc Charge"
+        }, 
+        {
+          "id": "IN_001", 
+          "kind": "qpxexpress#taxData", 
+          "name": "India User Development Fee Departures"
+        }
+      ]
+    }, 
+    "kind": "qpxexpress#tripOptions", 
+    "requestId": "rlun1gosSWtlPmQsz0Q1lX", 
+    "tripOption": [
+      {
+        "id": "XGAgtUpDrsLNuAHUekrzE5001", 
+        "kind": "qpxexpress#tripOption", 
+        "pricing": [
+          {
+            "baseFareTotal": "INR18000", 
+            "fare": [
+              {
+                "basisCode": "BAANINR2", 
+                "carrier": "MK", 
+                "destination": "JNB", 
+                "id": "ADuWJvILrZGpCpSrxlgD7olY2Z1IDZRv1Z/V51AcOO72", 
+                "kind": "qpxexpress#fareInfo", 
+                "origin": "DEL"
+              }, 
+              {
+                "basisCode": "BAANINR2", 
+                "carrier": "MK", 
+                "destination": "DEL", 
+                "id": "ADuWJvILrZGpCpSrxlgD7olY2Z1IDZRv1Z/V51AcOO72", 
+                "kind": "qpxexpress#fareInfo", 
+                "origin": "JNB"
+              }
+            ], 
+            "fareCalculation": "DEL MK X/MRU MK JNB 132.90BAANINR2 MK X/MRU MK DEL 132.90BAANINR2 NUC 265.80 END ROE 67.716930 FARE INR 18000 XT 69F2 69G1 2374IN 1920JN 150WO 546OV 105EV 119UM 984WC 1155ZA 15260YQ 1016YR", 
+            "kind": "qpxexpress#pricingInfo", 
+            "latestTicketingTime": "2017-03-31T23:59-05:00", 
+            "passengers": {
+              "adultCount": 1, 
+              "kind": "qpxexpress#passengerCounts"
+            }, 
+            "ptc": "ADT", 
+            "saleFareTotal": "INR18000", 
+            "saleTaxTotal": "INR23767", 
+            "saleTotal": "INR41767", 
+            "segmentPricing": [
+              {
+                "fareId": "ADuWJvILrZGpCpSrxlgD7olY2Z1IDZRv1Z/V51AcOO72", 
+                "kind": "qpxexpress#segmentPricing", 
+                "segmentId": "GL+yUzESc4Wn-ylN"
+              }, 
+              {
+                "fareId": "ADuWJvILrZGpCpSrxlgD7olY2Z1IDZRv1Z/V51AcOO72", 
+                "kind": "qpxexpress#segmentPricing", 
+                "segmentId": "GWf9oAh6gbtKarPS"
+              }, 
+              {
+                "fareId": "ADuWJvILrZGpCpSrxlgD7olY2Z1IDZRv1Z/V51AcOO72", 
+                "kind": "qpxexpress#segmentPricing", 
+                "segmentId": "G+Hej98uj7nPbHeJ"
+              }, 
+              {
+                "fareId": "ADuWJvILrZGpCpSrxlgD7olY2Z1IDZRv1Z/V51AcOO72", 
+                "kind": "qpxexpress#segmentPricing", 
+                "segmentId": "G-0WnxAAe-waLp1e"
+              }
+            ], 
+            "tax": [
+              {
+                "chargeType": "GOVERNMENT", 
+                "code": "JN", 
+                "country": "IN", 
+                "id": "JN_004", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR1009"
+              }, 
+              {
+                "chargeType": "GOVERNMENT", 
+                "code": "F2", 
+                "country": "IN", 
+                "id": "F2_001", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR38"
+              }, 
+              {
+                "chargeType": "GOVERNMENT", 
+                "code": "G1", 
+                "country": "IN", 
+                "id": "G1_001", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR38"
+              }, 
+              {
+                "chargeType": "GOVERNMENT", 
+                "code": "OV", 
+                "country": "MU", 
+                "id": "OV_001", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR546"
+              }, 
+              {
+                "chargeType": "CARRIER_SURCHARGE", 
+                "code": "YR", 
+                "id": "YR_I", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR716"
+              }, 
+              {
+                "chargeType": "GOVERNMENT", 
+                "code": "JN", 
+                "country": "IN", 
+                "id": "JN_004", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR911"
+              }, 
+              {
+                "chargeType": "GOVERNMENT", 
+                "code": "F2", 
+                "country": "IN", 
+                "id": "F2_001", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR31"
+              }, 
+              {
+                "chargeType": "GOVERNMENT", 
+                "code": "G1", 
+                "country": "IN", 
+                "id": "G1_001", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR31"
+              }, 
+              {
+                "chargeType": "CARRIER_SURCHARGE", 
+                "code": "YQ", 
+                "id": "YQ_F", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR15260"
+              }, 
+              {
+                "chargeType": "CARRIER_SURCHARGE", 
+                "code": "YR", 
+                "id": "YR_F", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR300"
+              }, 
+              {
+                "chargeType": "GOVERNMENT", 
+                "code": "WO", 
+                "country": "IN", 
+                "id": "WO_001", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR150"
+              }, 
+              {
+                "chargeType": "GOVERNMENT", 
+                "code": "IN", 
+                "country": "IN", 
+                "id": "IN_001", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR1301"
+              }, 
+              {
+                "chargeType": "GOVERNMENT", 
+                "code": "IN", 
+                "country": "IN", 
+                "id": "IN_003", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR1073"
+              }, 
+              {
+                "chargeType": "GOVERNMENT", 
+                "code": "ZA", 
+                "country": "ZA", 
+                "id": "ZA_001", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR1155"
+              }, 
+              {
+                "chargeType": "GOVERNMENT", 
+                "code": "EV", 
+                "country": "ZA", 
+                "id": "EV_001", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR105"
+              }, 
+              {
+                "chargeType": "GOVERNMENT", 
+                "code": "UM", 
+                "country": "ZA", 
+                "id": "UM_001", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR119"
+              }, 
+              {
+                "chargeType": "GOVERNMENT", 
+                "code": "WC", 
+                "country": "ZA", 
+                "id": "WC_001", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR984"
+              }
+            ]
+          }
+        ], 
+        "saleTotal": "INR41767", 
+        "slice": [
+          {
+            "duration": 855, 
+            "kind": "qpxexpress#sliceInfo", 
+            "segment": [
+              {
+                "bookingCode": "B", 
+                "bookingCodeCount": 9, 
+                "cabin": "COACH", 
+                "connectionDuration": 140, 
+                "duration": 450, 
+                "flight": {
+                  "carrier": "MK", 
+                  "number": "745"
+                }, 
+                "id": "GL+yUzESc4Wn-ylN", 
+                "kind": "qpxexpress#segmentInfo", 
+                "leg": [
+                  {
+                    "aircraft": "343", 
+                    "arrivalTime": "2017-05-12T14:00+04:00", 
+                    "departureTime": "2017-05-12T08:00+05:30", 
+                    "destination": "MRU", 
+                    "duration": 450, 
+                    "id": "LP6uMTFmUhl8qZaf", 
+                    "kind": "qpxexpress#legInfo", 
+                    "meal": "Meal", 
+                    "mileage": 3623, 
+                    "origin": "DEL", 
+                    "originTerminal": "3"
+                  }
+                ], 
+                "marriedSegmentGroup": "0"
+              }, 
+              {
+                "bookingCode": "B", 
+                "bookingCodeCount": 9, 
+                "cabin": "COACH", 
+                "duration": 265, 
+                "flight": {
+                  "carrier": "MK", 
+                  "number": "949"
+                }, 
+                "id": "G+Hej98uj7nPbHeJ", 
+                "kind": "qpxexpress#segmentInfo", 
+                "leg": [
+                  {
+                    "aircraft": "320", 
+                    "arrivalTime": "2017-05-12T18:45+02:00", 
+                    "departureTime": "2017-05-12T16:20+04:00", 
+                    "destination": "JNB", 
+                    "destinationTerminal": "A", 
+                    "duration": 265, 
+                    "id": "LPq2vb1kd9-YHJ5u", 
+                    "kind": "qpxexpress#legInfo", 
+                    "mileage": 1904, 
+                    "operatingDisclosure": "OPERATED BY SOUTH AFRICAN", 
+                    "origin": "MRU"
+                  }
+                ], 
+                "marriedSegmentGroup": "1"
+              }
+            ]
+          }, 
+          {
+            "duration": 790, 
+            "kind": "qpxexpress#sliceInfo", 
+            "segment": [
+              {
+                "bookingCode": "B", 
+                "bookingCodeCount": 9, 
+                "cabin": "COACH", 
+                "connectionDuration": 100, 
+                "duration": 240, 
+                "flight": {
+                  "carrier": "MK", 
+                  "number": "852"
+                }, 
+                "id": "G-0WnxAAe-waLp1e", 
+                "kind": "qpxexpress#segmentInfo", 
+                "leg": [
+                  {
+                    "aircraft": "343", 
+                    "arrivalTime": "2017-05-25T19:35+04:00", 
+                    "departureTime": "2017-05-25T13:35+02:00", 
+                    "destination": "MRU", 
+                    "duration": 240, 
+                    "id": "LmOQhw57XvxDdQgE", 
+                    "kind": "qpxexpress#legInfo", 
+                    "meal": "Meal", 
+                    "mileage": 1904, 
+                    "origin": "JNB", 
+                    "originTerminal": "B"
+                  }
+                ], 
+                "marriedSegmentGroup": "2"
+              }, 
+              {
+                "bookingCode": "B", 
+                "bookingCodeCount": 9, 
+                "cabin": "COACH", 
+                "duration": 450, 
+                "flight": {
+                  "carrier": "MK", 
+                  "number": "744"
+                }, 
+                "id": "GWf9oAh6gbtKarPS", 
+                "kind": "qpxexpress#segmentInfo", 
+                "leg": [
+                  {
+                    "aircraft": "343", 
+                    "arrivalTime": "2017-05-26T06:15+05:30", 
+                    "departureTime": "2017-05-25T21:15+04:00", 
+                    "destination": "DEL", 
+                    "destinationTerminal": "3", 
+                    "duration": 450, 
+                    "id": "LdMq19VWxeWUDyre", 
+                    "kind": "qpxexpress#legInfo", 
+                    "meal": "Meal", 
+                    "mileage": 3623, 
+                    "origin": "MRU"
+                  }
+                ], 
+                "marriedSegmentGroup": "3"
+              }
+            ]
+          }
+        ]
+      }, 
+      {
+        "id": "XGAgtUpDrsLNuAHUekrzE5002", 
+        "kind": "qpxexpress#tripOption", 
+        "pricing": [
+          {
+            "baseFareTotal": "INR16785", 
+            "fare": [
+              {
+                "basisCode": "QLPRINA", 
+                "carrier": "ET", 
+                "destination": "JNB", 
+                "id": "AMFgqtsjzEzs0YU7JezsLU81GM5tvG7GzHb9tfIHb+qw", 
+                "kind": "qpxexpress#fareInfo", 
+                "origin": "DEL"
+              }, 
+              {
+                "basisCode": "QLPRINA", 
+                "carrier": "ET", 
+                "destination": "DEL", 
+                "id": "AMFgqtsjzEzs0YU7JezsLU81GM5tvG7GzHb9tfIHb+qw", 
+                "kind": "qpxexpress#fareInfo", 
+                "origin": "JNB"
+              }
+            ], 
+            "fareCalculation": "DEL ET X/ADD ET JNB 123.91QLPRINA ET X/ADD ET DEL 123.91QLPRINA NUC 247.82 END ROE 67.716930 FARE INR 16785 XT 83F2 83G1 2374IN 2323JN 150WO 105EV 119UM 984WC 1155ZA 24680YR", 
+            "kind": "qpxexpress#pricingInfo", 
+            "latestTicketingTime": "2017-05-11T16:39-05:00", 
+            "passengers": {
+              "adultCount": 1, 
+              "kind": "qpxexpress#passengerCounts"
+            }, 
+            "ptc": "ADT", 
+            "refundable": true, 
+            "saleFareTotal": "INR16785", 
+            "saleTaxTotal": "INR32056", 
+            "saleTotal": "INR48841", 
+            "segmentPricing": [
+              {
+                "fareId": "AMFgqtsjzEzs0YU7JezsLU81GM5tvG7GzHb9tfIHb+qw", 
+                "kind": "qpxexpress#segmentPricing", 
+                "segmentId": "GHgQw-I0yDUxrRbe"
+              }, 
+              {
+                "fareId": "AMFgqtsjzEzs0YU7JezsLU81GM5tvG7GzHb9tfIHb+qw", 
+                "kind": "qpxexpress#segmentPricing", 
+                "segmentId": "GLV6Ni4tGVCOpGC1"
+              }, 
+              {
+                "fareId": "AMFgqtsjzEzs0YU7JezsLU81GM5tvG7GzHb9tfIHb+qw", 
+                "kind": "qpxexpress#segmentPricing", 
+                "segmentId": "GjNq8VUyxeCrLCRi"
+              }, 
+              {
+                "fareId": "AMFgqtsjzEzs0YU7JezsLU81GM5tvG7GzHb9tfIHb+qw", 
+                "kind": "qpxexpress#segmentPricing", 
+                "segmentId": "G79sm1LLgnpOCzpK"
+              }
+            ], 
+            "tax": [
+              {
+                "chargeType": "GOVERNMENT", 
+                "code": "G1", 
+                "country": "IN", 
+                "id": "G1_001", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR35"
+              }, 
+              {
+                "chargeType": "GOVERNMENT", 
+                "code": "JN", 
+                "country": "IN", 
+                "id": "JN_004", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR941"
+              }, 
+              {
+                "chargeType": "GOVERNMENT", 
+                "code": "F2", 
+                "country": "IN", 
+                "id": "F2_001", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR35"
+              }, 
+              {
+                "chargeType": "CARRIER_SURCHARGE", 
+                "code": "YR", 
+                "id": "YR_F", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR24680"
+              }, 
+              {
+                "chargeType": "GOVERNMENT", 
+                "code": "G1", 
+                "country": "IN", 
+                "id": "G1_001", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR48"
+              }, 
+              {
+                "chargeType": "GOVERNMENT", 
+                "code": "JN", 
+                "country": "IN", 
+                "id": "JN_004", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR1382"
+              }, 
+              {
+                "chargeType": "GOVERNMENT", 
+                "code": "F2", 
+                "country": "IN", 
+                "id": "F2_001", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR48"
+              }, 
+              {
+                "chargeType": "GOVERNMENT", 
+                "code": "WO", 
+                "country": "IN", 
+                "id": "WO_001", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR150"
+              }, 
+              {
+                "chargeType": "GOVERNMENT", 
+                "code": "IN", 
+                "country": "IN", 
+                "id": "IN_001", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR1301"
+              }, 
+              {
+                "chargeType": "GOVERNMENT", 
+                "code": "IN", 
+                "country": "IN", 
+                "id": "IN_003", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR1073"
+              }, 
+              {
+                "chargeType": "GOVERNMENT", 
+                "code": "ZA", 
+                "country": "ZA", 
+                "id": "ZA_001", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR1155"
+              }, 
+              {
+                "chargeType": "GOVERNMENT", 
+                "code": "EV", 
+                "country": "ZA", 
+                "id": "EV_001", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR105"
+              }, 
+              {
+                "chargeType": "GOVERNMENT", 
+                "code": "UM", 
+                "country": "ZA", 
+                "id": "UM_001", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR119"
+              }, 
+              {
+                "chargeType": "GOVERNMENT", 
+                "code": "WC", 
+                "country": "ZA", 
+                "id": "WC_001", 
+                "kind": "qpxexpress#taxInfo", 
+                "salePrice": "INR984"
+              }
+            ]
+          }
+        ], 
+        "saleTotal": "INR48841", 
+        "slice": [
+          {
+            "duration": 865, 
+            "kind": "qpxexpress#sliceInfo", 
+            "segment": [
+              {
+                "bookingCode": "Q", 
+                "bookingCodeCount": 4, 
+                "cabin": "COACH", 
+                "connectionDuration": 115, 
+                "duration": 425, 
+                "flight": {
+                  "carrier": "ET", 
+                  "number": "687"
+                }, 
+                "id": "GLV6Ni4tGVCOpGC1", 
+                "kind": "qpxexpress#segmentInfo", 
+                "leg": [
+                  {
+                    "aircraft": "763", 
+                    "arrivalTime": "2017-05-12T06:45+03:00", 
+                    "departureTime": "2017-05-12T02:10+05:30", 
+                    "destination": "ADD", 
+                    "destinationTerminal": "2", 
+                    "duration": 425, 
+                    "id": "L8cWNs82u3uqXUuv", 
+                    "kind": "qpxexpress#legInfo", 
+                    "meal": "Snack or Brunch", 
+                    "mileage": 2827, 
+                    "origin": "DEL", 
+                    "originTerminal": "3"
+                  }
+                ], 
+                "marriedSegmentGroup": "0"
+              }, 
+              {
+                "bookingCode": "Q", 
+                "bookingCodeCount": 4, 
+                "cabin": "COACH", 
+                "duration": 325, 
+                "flight": {
+                  "carrier": "ET", 
+                  "number": "809"
+                }, 
+                "id": "GjNq8VUyxeCrLCRi", 
+                "kind": "qpxexpress#segmentInfo", 
+                "leg": [
+                  {
+                    "aircraft": "77L", 
+                    "arrivalTime": "2017-05-12T13:05+02:00", 
+                    "departureTime": "2017-05-12T08:40+03:00", 
+                    "destination": "JNB", 
+                    "destinationTerminal": "A", 
+                    "duration": 325, 
+                    "id": "L2y0dXhWQqwpSeI8", 
+                    "kind": "qpxexpress#legInfo", 
+                    "meal": "Lunch", 
+                    "mileage": 2526, 
+                    "origin": "ADD", 
+                    "originTerminal": "2"
+                  }
+                ], 
+                "marriedSegmentGroup": "1"
+              }
+            ]
+          }, 
+          {
+            "duration": 900, 
+            "kind": "qpxexpress#sliceInfo", 
+            "segment": [
+              {
+                "bookingCode": "Q", 
+                "bookingCodeCount": 4, 
+                "cabin": "COACH", 
+                "connectionDuration": 195, 
+                "duration": 315, 
+                "flight": {
+                  "carrier": "ET", 
+                  "number": "808"
+                }, 
+                "id": "GHgQw-I0yDUxrRbe", 
+                "kind": "qpxexpress#segmentInfo", 
+                "leg": [
+                  {
+                    "aircraft": "77L", 
+                    "arrivalTime": "2017-05-25T20:25+03:00", 
+                    "departureTime": "2017-05-25T14:10+02:00", 
+                    "destination": "ADD", 
+                    "destinationTerminal": "2", 
+                    "duration": 315, 
+                    "id": "LgTeBx5xzvLgyndN", 
+                    "kind": "qpxexpress#legInfo", 
+                    "meal": "Lunch", 
+                    "mileage": 2526, 
+                    "origin": "JNB", 
+                    "originTerminal": "A"
+                  }
+                ], 
+                "marriedSegmentGroup": "2"
+              }, 
+              {
+                "bookingCode": "Q", 
+                "bookingCodeCount": 7, 
+                "cabin": "COACH", 
+                "duration": 390, 
+                "flight": {
+                  "carrier": "ET", 
+                  "number": "686"
+                }, 
+                "id": "G79sm1LLgnpOCzpK", 
+                "kind": "qpxexpress#segmentInfo", 
+                "leg": [
+                  {
+                    "aircraft": "763", 
+                    "arrivalTime": "2017-05-26T08:40+05:30", 
+                    "departureTime": "2017-05-25T23:40+03:00", 
+                    "destination": "DEL", 
+                    "destinationTerminal": "3", 
+                    "duration": 390, 
+                    "id": "Lk5uzJRcV3gkrpYh", 
+                    "kind": "qpxexpress#legInfo", 
+                    "meal": "Dinner", 
+                    "mileage": 2827, 
+                    "origin": "ADD", 
+                    "originTerminal": "2"
+                  }
+                ], 
+                "marriedSegmentGroup": "3"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
