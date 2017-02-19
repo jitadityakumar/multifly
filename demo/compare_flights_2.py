@@ -50,19 +50,14 @@ def find_time_diff(out1,in1,out2,in2):
 
 def convert_to_eur(ccy,amount):
 
-	# JK hack , too many requests
-	return float(amount)
-
 	if (ccy=="EUR"):
 		return float(amount)
 
-	print("Convert - "+ccy+" "+amount)
-	url = ('http://api.fixer.io/latest?symbols=%s') % (ccy)
-	response = requests.get(url)
+	with open("ccy.json") as outfile:
+		ccy_json = json.load(outfile)
 
-	data = json.loads(response.text)
+	factor = ccy_json["rates"][ccy]
 
-	factor = data["rates"][ccy]
 	convert = float(amount) / float(factor)
 	convert = round(convert,2)
 	return float(convert)
@@ -233,10 +228,6 @@ in1 =trip1[1,"MaxInDepTime"]
 out2=trip2[1,"MaxOutArrTime"]
 in2 =trip2[1,"MaxInDepTime"]
 best[0,"diff"]=find_time_diff(out1,in1,out2,in2)
-best[0,"out1"]=out1
-best[0,"in1"] =in1
-best[0,"out2"]=out2
-best[0,"in2"] =in2
 best[0,"price"]=abs(convert_to_eur(trip1[1,"currency"],trip1[1,"value"]) - convert_to_eur(trip2[1,"currency"],trip2[1,"value"]))
 best[0,"trip1"]=1
 best[0,"trip2"]=1
@@ -244,10 +235,6 @@ best_diff=best[0,"diff"]
 best_price=best[0,"price"]
 best_1=1
 best_2=1
-best_out1=1
-best_in1=1
-best_out2=1
-best_in2=1
 
 
 for i in range (1,int(trip1['counter'])+1):
@@ -260,10 +247,6 @@ for i in range (1,int(trip1['counter'])+1):
 	best[i-1,"price"]=abs(convert_to_eur(trip1[i,"currency"],trip1[i,"value"]) - convert_to_eur(trip2[1,"currency"],trip2[1,"value"]))
 	best[i-1,"trip1"]=i
 	best[i-1,"trip2"]=1
-	best[i-1,"out1"]=out1
-	best[i-1,"in1"] =in1
-	best[i-1,"out2"]=out2
-	best[i-1,"in2"] =in2
 
 	# for each trip in trip1, find the best flight in trip2
 	for j in range (1,int(trip2['counter'])+1):
@@ -278,8 +261,6 @@ for i in range (1,int(trip1['counter'])+1):
 			best[i-1,"diff"]=diff
 			best[i-1,"trip1"]=i
 			best[i-1,"trip2"]=j
-			best[i-1,"out2"]=out2
-			best[i-1,"in2"]=in2
 
 		price1=convert_to_eur(trip1[i,"currency"],trip1[i,"value"])
 		price2=convert_to_eur(trip2[j,"currency"],trip2[j,"value"])
@@ -291,19 +272,17 @@ for i in range (1,int(trip1['counter'])+1):
 		best_diff=best[i-1,"diff"]
 		best_1=best[i-1,"trip1"]
 		best_2=best[i-1,"trip2"]
-		best_out1=best[i-1,"out1"]
-		best_in1=best[i-1,"in1"]
-		best_out2=best[i-1,"out2"]
-		best_in2=best[i-1,"in2"]
 
 	if (best[i-1,"price"] < best_price):
 		best_price = best[i-1,"price"]
 
-diff2 = find_time_diff(best_out1,best_in1,best_out2,best_in2)
 print("All time best diff "+str(best_diff)+" "+str(best_1)+"-"+str(best_2))
-#print("out1 "+str(best_out1)+" in1 "+str(best_in1))
-#print("out2 "+str(best_out2)+" in2 "+str(best_in2))
-#print("All time price diff "+str(best_price))
+print("All time best price diff - EUR "+str(best_price))
+
+price1 = convert_to_eur(trip1[best_1,"currency"],trip1[best_1,"value"])
+price2 = convert_to_eur(trip2[best_2,"currency"],trip2[best_2,"value"])
+current_price_diff = abs(price1 - price2)
+print("Current price diff EUR "+str(current_price_diff))
 
 print_trip_details(trip1,best_1)
 print_trip_details(trip2,best_2)
